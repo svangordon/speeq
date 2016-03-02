@@ -41,10 +41,10 @@ module.exports = {
       })
     },
     upsert: function(req,res) {
-      console.log('creating restaurant')
-      var user = new db.User(req.body)
+      console.log('creating restaurant', req.body)
+      var user = new db.Restaurant(req.body)
       var options = {upsert: true, new: true}
-      db.User.findOneAndUpdate({_id : user._id}, user, options, function (err, doc) {
+      db.Restaurant.findOneAndUpdate({_id : user._id}, user, options, function (err, doc) {
         if (err) throw err
         console.log('doc updated')
         res.json(doc)

@@ -18,9 +18,17 @@ app.use(logger('dev'))
 app.use(bodyParser.urlencoded({
   extended: true
 }))
+app.use(bodyParser.json())
 
 // Set static
 app.use(express.static(__dirname + '/../public'))
+// =======================================
+
+// Initialize routes to use
+app.use('/api', apiRoutes)
+// =======================================
+// Initialize routes to use
+// app.use('/', apiRoutes)
 // =======================================
 
 // home route
@@ -28,12 +36,6 @@ app.get('/', function (req, res) {
   res.sendFile('index.html', {root: '../public/html'})
 })
 
-// Initialize routes to use
-app.use('/api', apiRoutes)
-// =======================================
-// Initialize routes to use
-app.use('/', apiRoutes)
-// =======================================
 // SET THE PORT TO RUN
 app.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'))

@@ -1,11 +1,11 @@
 angular.module('speeq')
-	.controller('controllerSpeeq', ['$scope', '$http', function($scope, $http){
+	.factory('factorySpeeq', ['$http', function($http){
 
 		$scope.restaurantSubmit = function(){
 			console.log($scope.restaurant)
 			$http.post('/api/restaurants', $scope.restaurant)
 				.then(function(returnData){
-					$scope.restaurantData.push(returnData.data)
+					$scope.restaurantInfo = returnData.data
 					$scope.restaurant = {}
 				})
 		}
@@ -17,5 +17,10 @@ angular.module('speeq')
 					console.log($scope.restaurantData)
 				})
 		}
-		$scope.restaurantGet()
+
+		return {
+
+			
+		}
+
 	}])
