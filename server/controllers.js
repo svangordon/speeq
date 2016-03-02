@@ -1,5 +1,5 @@
 var db = require('./models'),
-  request = require('request'),
+  request = require('request');
 
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
       console.log('creating user')
       var user = new db.User(req.body)
       var options = {upsert: true, new: true}
-      db.Users.findOneAndUpdate({_id : user._id}, user, options, function (err, doc) {
+      db.User.findOneAndUpdate({_id : user._id}, user, options, function (err, doc) {
         if (err) throw err
         console.log('doc updated')
         res.json(doc)
@@ -24,6 +24,13 @@ module.exports = {
         res.json(users)
       })
     },
+    get: function(req,res) {
+      var userId = req.params._id;
+      db.User.find({_id: userId}, function(err, user) {
+        if (err) throw err
+          res.json(user)
+      })
+    }
   },
   restaurant: {
     all: function(req,res) {
@@ -32,7 +39,7 @@ module.exports = {
         if (err) throw err
         res.json(restaurants)
       })
-    }
+    },
     upsert: function(req,res) {
       console.log('creating restaurant')
       var user = new db.User(req.body)

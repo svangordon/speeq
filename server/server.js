@@ -1,15 +1,13 @@
 // =====START GLOBAL VAR DECLARATION=====
 var express = require('express'),
   app = express(),
-  path = require('path'),
   logger = require('morgan'),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
-  apiRoutes = require('./api_routes.js'),
-  cors = require('cors');
+  apiRoutes = require('./api_routes.js');
 // =======================================
 // CONNECT TO LOCAL MONGO DB OR MONGOLABS
-mongoose.connect('mongodb://localhost:27017/speeqerboxx', function (err) {
+mongoose.connect('mongodb://localhost/speeqerboxx', function (err) {
   if (err) console.log(err)
   console.log('Connected to MongoDB')
 })
@@ -21,11 +19,17 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
+// Set static
+app.use(express.static(__dirname + '/../public'))
+// =======================================
+
+// home route
+app.get('/', function (req, res) {
+  res.sendFile('index.html', {root: '../public/html'})
+})
+
 // Initialize routes to use
 app.use('/api', apiRoutes)
-// =======================================
-// SET THE PORT TO RUN
-app.use(express.static(path.join(__dirname, '../client')))
 // =======================================
 // Initialize routes to use
 app.use('/', apiRoutes)

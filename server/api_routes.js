@@ -1,9 +1,7 @@
 // =====START GLOBAL VAR DECLARATION=====
 var ctrls = require('./controllers.js'),
   apiRouter = require('express').Router(),
-  config = require('./config'),
-  secret = 'studentRefactorU',
-  db = require('./models')
+  db = require('./models');
 
 // ======================================
 // API routes
@@ -15,12 +13,12 @@ apiRouter.route('api/restaurants')
 apiRouter.route('api/restaurants/:_id')
 	.get(ctrls.restaurant.get)
 	.post(ctrls.restaurant.upsert)
-	.delete(ctrls.restaurant.delete)
+	// .delete(ctrls.restaurant.delete)
 
 // Users
 apiRouter.route('api/users')
-	.get(ctrls.users.all)
-	.post(ctrls.users.upsert)
+	.get(ctrls.user.all)
+	.post(ctrls.user.upsert)
 
 apiRouter.route('api/user/:_id')
 	.get(ctrls.user.get)
@@ -28,7 +26,9 @@ apiRouter.route('api/user/:_id')
 // Reviews
 apiRouter.route('api/review/_id')
 	.get(ctrls.review.get)
-	.delete(ctrls.review.delete)
+	// .delete(ctrls.review.delete)
 
 apiRouter.route('api/reviews/')
-	.post(ctrls.review.create)
+	.post(ctrls.review.upsert)
+
+module.exports = apiRouter

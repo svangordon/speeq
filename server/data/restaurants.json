@@ -1,6 +1,25 @@
-{"restaurants":[
-    {"name":"Taco Town", "cuisine":"Mexican", "price": "1", "reviews":"[]", "address": "1111 Burrito Rd Longmont, CO 80502", "rating":"4"},
-    {"name":"Burger Town", "cuisine":"American", "price": "2", "reviews":"[]", "address": "1111 Cheeseburger Rd Boulder, CO 80303", "rating":"3"},
-    {"name":"Sushi Boat", "cuisine":"Japanese", "price": "3", "reviews":"[]", "address": "1111 Rice Rd Superior, CO 80037", "rating":"5"},
-    {"name":"The Gulyas Spot", "cuisine":"Hungarian", "price": "2", "reviews":"[]", "address": "1111 Burrito Rd Boulder, CO 80301", "rating":"5"},
-]};
+[{
+	"name": "Taco Town",
+	"cuisine": "Mexican",
+	"price": "1",
+	"address": "1111 Burrito Rd Longmont, CO 80502",
+	"rating": "4"
+}, {
+	"name": "Burger Town",
+	"cuisine": "American",
+	"price": "2",
+	"address": "1111 Cheeseburger Rd Boulder, CO 80303",
+	"rating": "3"
+}, {
+	"name": "Sushi Boat",
+	"cuisine": "Japanese",
+	"price": "3",
+	"address": "1111 Rice Rd Superior, CO 80037",
+	"rating": "5"
+}, {
+	"name": "The Gulyas Spot",
+	"cuisine": "Hungarian",
+	"price": "2",
+	"address": "1111 Burrito Rd Boulder, CO 80301",
+	"rating": "5"
+}]
