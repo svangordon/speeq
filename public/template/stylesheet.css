@@ -1,0 +1,171 @@
+.dropmenu1 {
+	margin-top: 10px;
+	font-size: 18px;
+	width: 150px;
+	height: 50px;
+}
+
+.dropmenu2 {
+	margin-top: 10px;
+	font-size: 18px;
+	width: 200px;
+	height: 50px;
+}
+
+.background-grey{
+	background-color: lightgray;
+	width: 407px;
+	height: 380px;
+	padding: 10px;
+	opacity: 0.4;
+
+}
+
+.lead, .radio-inline {
+	color: white;
+	font-size: 18px;
+	letter-spacing: 2px;
+}
+
+.text-muted {
+	color: #088da5;
+}
+
+.icons{
+	display: inline-block;
+}
+
+.input-group {
+	padding-right: 5px;
+}
+
+.btn-success {
+	margin-top: 30px;
+	padding-left: 10px;
+}
+
+.two {
+	display: inline-block;
+}
+
+.twodropd {
+	display: inline-block;
+}
+
+.dropdown-toggle {
+	margin-right: 10px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.jumbotron {
+	background-image: url("./images/food.png");
+	background-size: cover;
+	height: 450px;
+	}
+
+.btn-default {
+	margin-bottom: 30px;
+}
+
+#map-container {
+ height: 300px;
+}
+
+.footer {
+	text-align: left;
+}
+
+.title {
+	color: white;
+	font-size: 43px;
+}
+
+.counter{
+	color: #E30B5D;
+	font-size: 19px;
+}
+
+.cnumber{
+	color: #E30B5D;
+	font-size: 15px;
+	padding-left: 5px;
+}
+
+.carousel{
+	margin-bottom: 25px;
+}
+
+/*POPUP*/
+.popup {
+	height: 500px;
+	width: 500px;
+	background-color: lightgray;
+	text-align: left;
+	position: absolute;
+	padding: 20px;
+
+}
+
+.close{
+	font-size: 25px;
+	color: blue;
+	font-weight: bold;
+}
+
+.header-message{
+	font-size: 21px;
+	color: #088da5;
+	font-weight: bold;
+	vertical-align: center;
+
+}
+
+.popupcontent{
+	padding-top: 30px;
+}
+
+.modal-content{
+	width: 700px;
+	height: 800px;
+}
+
+.description{
+	width: 500px;
+	text-align: left;
+	margin-top: 20px;
+}
+
+.personality{
+	margin-top: 30px;
+	font-weight: bold;
+	color: #088da5;
+	font-size: 20px;
+}
+
+.personalityf{
+	font-weight: bold;
+	color: #088da5;
+	font-size: 18px;
+}
+
+.zip{
+	margin-top: 10px;
+	width: 200px;
+	height: 30px;
+}
+
+.form-inline {
+	margin-top: 25px;
+}
+
+.camera {
+	position: absolute;
+	z-index: 1000;
+	left: 200px;
+	top: 200px;
+	text-align: center;
+	padding: 20px;
+
+
+}
