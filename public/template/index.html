@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="PupsterApp">
+<head>
+	<title>Restaurant Finder</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/dropdown.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
+  	<script type="text/javascript" src="javascript.js"></script>
+ 
+</head>
+<body ng-controller="searchController">
+	<div class="container">
+      <div class="header clearfix">
+        <h3 class="text-muted"><img src="./images/taste.png" style=" height: 50px; padding-right:15px;">Restaurant Finder</h3>
+      </div>
+      <div class="jumbotron">
+      	<div style="background-grey">
+        <h2 class="title">Healthy Dining Finder </h2>
+        <p class="lead">Expert Restaurant Reviews & Deals</p>
+
+        <div class="row">
+    		<div class="col-lg-12">
+   <form>
+    <div class="form-group">
+      <div class="input-group">
+        <input type="text" size="35" class="form-control" placeholder="Restaurant Type" ng-model="restaurantCuisine">
+      </div>      
+    </div>
+  </form>
+
+  </div>
+
+</div>
+	 <p><a class="btn btn-lg btn-success" role="button" ng-click="search()">Search Cusine</a></p>
+	 </div>
+</div> <!-- ROW CLOSE -->
+		</div>
+	</div>
+<center>
+<div class="container">
+      <!-- Search Result -->
+      <div class="row">
+        <div class="col-md-4" ng-repeat="restaurant in restaurants | filter:restaurantCusine">
+        <img ng-src="{{restaurant.imageUrl}}"></a>
+        <h3>{{restaurant.name}}</h3>
+      
+          <p style="width:270px;">{{restaurant.description}}</p>
+          <button ng-click="popUp(animal)" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">More Info</button>
+        </div>
+
+        <!-- NEW POPUP-->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog" ng-show="profile">
+                  <div class="modal-dialog">
+                  
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" ng-click="popUp()" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Bon Appetit!</h4>
+                      </div>
+                      <div class="modal-body">
+                        <h1>{{restaurant.cuisine}}</h1>
+                        
+                        <p class="description">
+                        {{restaurant.address}}</p>
+                        <p>{{restaurant.rating}}</p>
+                        <p>{{restaurant.price}}</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button ng-click="popUp()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+        <!-- END POPUP -->
+	</div>
+	</center>
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-lg-12"
+      <footer>
+      <hr>
+        <p>&copy; 2016 Restaurant Finder, Inc.</p>
+      </footer>
+</div>
+</div>
+</div>
+
+</body>
+</html>
