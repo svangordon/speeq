@@ -2,14 +2,24 @@
 <html ng-app="speeq">
 	<head>
 		<title>SPEEQ it</title>
+		  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.2.1/annyang.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
 		<!-- <link rel="stylesheet" type="text/css" href="./css/styles.css"> -->
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-resource.js"></script>
 		<script type="text/javascript" src="/js/app.js"></script>
 		<script type="text/javascript" src="/js/controller.js"></script>
+		<script type="text/javascript" src="/js/annyang.js"></script>
+
 	</head>
 	<body ng-controller="controllerSpeeq">
+		<section id="section_hello">
+    <p><em>Go ahead, try it&hellip;</em></p>
+    <p class="voice_instructions">Say "Hello!"</p>
+    <p id="hello" class="hidden">Annyang!</p>
+  </section>
 		<h2>Submit a Restaurant</h2>
 		<div class="container">
 			<form ng-submit="restaurantSubmit()">

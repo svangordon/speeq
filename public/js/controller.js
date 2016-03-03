@@ -2,7 +2,6 @@ angular.module('speeq')
 	.controller('controllerSpeeq', ['$scope', '$http', function($scope, $http){
 
 		$scope.restaurantSubmit = function(){
-			console.log($scope.restaurant)
 			$http.post('/api/restaurants', $scope.restaurant)
 				.then(function(returnData){
 					$scope.restaurantData.push(returnData.data)
@@ -14,7 +13,6 @@ angular.module('speeq')
 			$http.get('/api/restaurants')
 				.then(function(returnData){
 					$scope.restaurantData = returnData.data
-					console.log($scope.restaurantData)
 				})
 		}
 		$scope.restaurantGet()
