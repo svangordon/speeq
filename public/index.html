@@ -19,7 +19,7 @@
  
 </head>
 <body ng-controller="speeqController">
-	<h1 ng-bind="search.cuisine"></h1>
+	<!-- <h1 ng-bind="search.cuisine"></h1> -->
   <div class="container">
       <div class="header clearfix">
         <h3 class="text-muted"><img src="./images/taste.png" style=" height: 50px; padding-right:15px;">Restaurant Finder</h3>
@@ -50,48 +50,50 @@
 <div class="container">
       <!-- Search Result -->
       <div class="row">
-        <div class="col-md-4" ng-repeat="restaurant in restaurants | filter:restaurantCusine">
+        <div class="col-md-4" ng-repeat="restaurant in restaurants | filter:search.cuisine || search.name || search.price || search.rating">
         <img ng-src="{{restaurant.imageUrl}}"></a>
         <h3>{{restaurant.name}}</h3>
       
           <p style="width:270px;">{{restaurant.description}}</p>
-          <button ng-click="popUp(animal)" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">More Info</button>
-        </div>
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">More Info</button>
+        
 
         <!-- NEW POPUP-->
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" role="dialog" ng-show="profile">
+                <div class="modal fade" id="myModal" role="dialog">
                   <div class="modal-dialog">
                   
                     <!-- Modal content-->
                     <div class="modal-content">
                       <div class="modal-header">
-                        <button type="button" ng-click="popUp()" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Bon Appetit!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Bon Appetit!</h4>
                       </div>
                       <div class="modal-body">
-                        <h1>{{restaurant.cuisine}}</h1>
+                        <h1>Type: {{restaurant.cuisine}}</h1>
                         
                         <p class="description">
-                        {{restaurant.address}}</p>
-                        <p>{{restaurant.rating}}</p>
-                        <p>{{restaurant.price}}</p>
+                        Address: {{restaurant.address}}</p>
+                        <p>Rating (1-10): {{restaurant.rating}}</p>
+                        <p>Price (1-10): {{restaurant.price}}</p>
                       </div>
                       <div class="modal-footer">
-                        <button ng-click="popUp()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
   
         <!-- END POPUP -->
 	</div>
 	</center>
+  <img src="http://rsmg.pbsrc.com/albums/v40/cress/avatars/annyong.jpg~c200" id="annyong" class="hidden">
 
 <div class="container">
 
 	<div class="row">
-		<div class="col-lg-12"
+		<div class="col-lg-12">
       <footer>
       <hr>
         <p>&copy; 2016 Restaurant Finder, Inc.</p>

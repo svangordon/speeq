@@ -9,6 +9,15 @@ angular.module('speeq')
 			name : ''
 		}
 
+		$scope.showAnnyong = function(type) {
+			console.log('Annyong!')
+		     $('#annyong').show().animate({
+		       bottom: '-100px'
+		     }).delay('2000').animate({
+		       bottom: '-500px'
+		     });
+		   };
+
 		$scope.triggerModal = function () {
 			console.log('triggerModal fired')
 			$('#myModal').modal('show');
@@ -71,8 +80,11 @@ angular.module('speeq')
 
 		  // 'find :cuisine food' : searchCuisine
 
-		  'find :field :value' : findMany
+		  'find :field :value' : findMany,
 
+		  'on young' : $scope.showAnnyong,
+
+		  'clear search' : function () {$scope.search = {}}
 		};
 
 		$scope.restaurantGet()
