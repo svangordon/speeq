@@ -1,5 +1,5 @@
 angular.module('speeq')
-	.controller('controllerSpeeq', ['$scope', '$http', 'annyangFactory', function($scope, $http, annyangFac){
+	.controller('speeqController', ['$scope', '$http', 'annyangFactory', function($scope, $http, annyangFac){
 
 		$scope.annyang = annyang
 		$scope.search = {
@@ -7,6 +7,11 @@ angular.module('speeq')
 			price : '',
 			rating : '',
 			name : ''
+		}
+
+		$scope.triggerModal = function () {
+			console.log('triggerModal fired')
+			$('#myModal').modal('show');
 		}
 
 		$scope.restaurantSubmit = function(){
@@ -20,7 +25,7 @@ angular.module('speeq')
 		$scope.restaurantGet = function(){
 			$http.get('/api/restaurants')
 				.then(function(returnData){
-					$scope.restaurantData = returnData.data
+					$scope.restaurants = returnData.data
 				})
 		}
 
@@ -28,6 +33,9 @@ angular.module('speeq')
 			console.log($scope.search);
 		}
 
+		$scope.invalidSearch = function () {
+			/* invalid search handler */
+		}
 
 	      function searchCuisine (cuisine) {
 	        var cuisines = ['hungarian', 'american', 'japanese', 'mexican'];
@@ -35,11 +43,17 @@ angular.module('speeq')
 	        cuisine = cuisines.indexOf(cuisine) === -1 ? null : cuisine
 	        $scope.search.cuisine = cuisine
 	        $scope.$apply()
+	        $scope.triggerModal()
 	        console.log('searchCuisine fired; search :', $scope.search.cuisine)
 	      }
 
 	      function findMany (field, value) {
-	      	
+	      	var fields = ['name', 'cuisine', 'price', 'rating'];
+	      	// var cuisines = ['hungarian', 'american', 'japanese', 'mexican'];
+	      	field = field.toLowerCase()
+	      	if (fields.indexOf(field) === -1) {
+	      		$scope.invalidSearch()
+	      	}
 	      	$scope.search[field] = value
 	      	console.log('new search obj :', $scope.search)
 	      	$scope.$apply()

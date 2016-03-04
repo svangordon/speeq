@@ -33,7 +33,7 @@ app.use('/api', apiRoutes)
 
 // home route
 app.get('/', function (req, res) {
-  res.sendFile('index.html', {root: 'public/html'})
+  res.sendFile('index.html', {root: 'public'})
 })
 
 // SET THE PORT TO RUN

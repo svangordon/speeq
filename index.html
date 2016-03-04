@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="speeq">
+	<head>
+		<title>SPEEQ it</title>
+		  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.2.1/annyang.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="./css/styles.css"> -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-resource.js"></script>
+		<script type="text/javascript" src="/js/app.js"></script>
+		<script type="text/javascript" src="/js/annyangFactory.js"></script>
+		<script type="text/javascript" src="/js/controller.js"></script>
+		<!--<script type="text/javascript" src="/js/annyang.js"></script>-->
+
+	</head>
+	<body ng-controller="controllerSpeeq">
+		<section id="section_hello">
+    <p><em>Go ahead, try it&hellip;</em></p>
+    <p class="voice_instructions">Say "Hello!"</p>
+    <p id="hello" class="hidden">Annyang!</p>
+  </section>
+  	<h1 ng-bind="search.cuisine" ng-click="showSearchObject()"></h1>
+		<h2>Submit a Restaurant</h2>
+		<div class="container">
+			<form ng-submit="restaurantSubmit()">
+			  <fieldset class="form-group">
+			    <label for="formGroupExampleInput">Restaurant Name</label>
+			    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Restaurant Name" ng-model="restaurant.name">
+			  </fieldset>
+			  <fieldset class="form-group">
+			    <label for="formGroupExampleInput2">Cuisine</label>
+			    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Cuisine" ng-model="restaurant.cuisine">
+			  </fieldset>
+			  <fieldset class="form-group">
+			    <label for="formGroupExampleInput3">Address</label>
+			    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Address" ng-model="restaurant.address">
+			  </fieldset>
+			  <fieldset class="form-group">
+			    <label for="formGroupExampleInput4">Price Level</label>
+			    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Price" min="1" max="5" ng-model="restaurant.price">
+			  </fieldset>
+			  <fieldset class="form-group">
+			    <label for="formGroupExampleInput5">Rating</label>
+			    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Rating" min="1" max="5" ng-model="restaurant.rating">
+			  </fieldset>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+
+		<div class="container">
+			<h2>View Restaurants</h2>
+			<ul ng-repeat="restaurant in restaurantData | filter : search">
+				<li>{{restaurant.name}}</li>
+				<li>{{restaurant.cuisine}}</li>
+				<li>{{restaurant.address}}</li>
+				<li>{{restaurant.price}}</li>
+				<li>{{restaurant.rating}}</li>
+			</ul>
+		</div>
+	</body>
+</html>
