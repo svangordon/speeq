@@ -8,15 +8,17 @@ angular.module('speeq')
 			rating : '',
 			name : ''
 		}
-
-		$scope.showAnnyong = function(type) {
+		var audio = new Audio('../Annyong.mp3')
+		$scope.annyong = false
+		$scope.showAnnyong = function() {
 			console.log('Annyong!')
-		     $('#annyong').show().animate({
-		       bottom: '-100px'
-		     }).delay('2000').animate({
-		       bottom: '-500px'
-		     });
+		     $scope.annyong = true
+			 audio.play()
 		   };
+
+		$scope.hideAnnyong = function() {
+			$scope.annyong = false
+		}
 
 		$scope.triggerModal = function () {
 			console.log('triggerModal fired')
@@ -83,6 +85,8 @@ angular.module('speeq')
 		  'find :field :value' : findMany,
 
 		  'on young' : $scope.showAnnyong,
+
+		  'no on young' : $scope.hideAnnyong,
 
 		  'clear search' : function () {$scope.search = {}}
 		};
